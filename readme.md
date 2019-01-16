@@ -3,7 +3,11 @@ dnspod 的 IPV6的解析脚本
 
 ## 使用
 
-编辑 "app.py" 文件里的 login_token 和 domains 相关配置
+编辑 *.py 文件里的 login_token 和 domains 相关配置
+
+dnspodv6.py 为持续运行,每30秒更新一次
+
+dnspodv6_corntab.py 适用于添加crontab调用
 
 
 ## 如何获取 domain_id
