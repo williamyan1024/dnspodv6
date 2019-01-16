@@ -71,7 +71,7 @@ if __name__ == '__main__':
         if local_ip != ip:
             logging.info("ip changed, begin request")
             if ddns(ip):
-                local_ip = ip
+                saveip(ip)
         else:
             logging.info("ip not chang, wait next time")
     except Exception, e:
