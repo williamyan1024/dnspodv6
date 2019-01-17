@@ -12,6 +12,8 @@ import logging
 logging.basicConfig(
     format='%(asctime)s - %(pathname)s[line:%(lineno)d] - %(levelname)s: %(message)s', level=logging.INFO)
 
+_ipfile = os.path.join(os.path.dirname(os.path.realpath(__file__)),"ip.txt")
+
 # 详见 : https://support.dnspod.cn/Kb/showarticle/tsid/227/
 login_token = "your_token"
 # 详见 : https://www.dnspod.cn/docs/records.html#record-modify
@@ -34,15 +36,15 @@ def getwebip():
 # 从本地读取文件
 def getlocip():
     logging.info("begin get local ip .")
-    if not os.path.exists("ip.txt"):
+    if not os.path.exists(_ipfile):
         return ''
-    with open('ip.txt', 'r') as fo:
+    with open(_ipfile, 'r') as fo:
         return fo.readline()
 
 
 def saveip(ip):
     logging.info("begin save ip .")
-    with open('ip.txt', 'w') as fo:
+    with open(_ipfile, 'w') as fo:
         fo.write(ip)
 
 
